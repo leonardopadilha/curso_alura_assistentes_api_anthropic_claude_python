@@ -6,7 +6,7 @@ def carrega(nome_do_arquivo):
   except IOError as e:
     print(f"Erro: {e}")
 
-def sava(nome_do_arquivo, conteudo):
+def salva(nome_do_arquivo, conteudo):
   try:
     with open(nome_do_arquivo, "w", encoding="utf-8") as arquivo:
       arquivo.write(conteudo)
