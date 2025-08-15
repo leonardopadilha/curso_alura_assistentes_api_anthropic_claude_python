@@ -20,16 +20,16 @@ def analisador_sentimentos(restaurante):
   o produto.
   Identifique também 3 pontos fortes e 3 pontos fracos identificados a partir das avaliações.
 
-  # Formato de Saída:
+  # Formato de Saída
 
-  Nome do Restaurante: {restaurante}
+  Nome do Restaurante: {restaurante} Por exemplo: Restaurante de Bolos e Doces ou Restaurante de Comida Chinesa ou Restaurante de Comida Vegana
   Resumo das avaliações:
   Sentimento Geral: [utilize aqui apenas Positivo, Negativo ou Neutro]
   Pontos fortes: Lista com três bullets
   Pontos fracos: Lista com três bullets
   """
 
-  prompt_do_usuario = carrega(f'./dados/avaliacoes/avaliacoes-restaurante-{restaurante}.txt')
+  prompt_do_usuario = carrega(f'./dados/avaliacoes/avaliacoes-{restaurante}.txt')
 
   print(f'Iniciou a análise do {restaurante}')
 
@@ -66,4 +66,6 @@ def analisador_sentimentos(restaurante):
     print(f"Um erro inesperado ocorreu: {e}")
 
 
-analisador_sentimentos('comida-vegana')
+lista_de_restaurantes = ['Restaurante de Bolos e Doces', 'Restaurante de Comida Chinesa', 'Restaurante de Comida Vegana']
+for restaurante in lista_de_restaurantes:
+  analisador_sentimentos(restaurante)
