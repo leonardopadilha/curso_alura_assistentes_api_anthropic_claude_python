@@ -1,0 +1,16 @@
+Recomendação: Acionar setor Anti-fraude
+
+Justificativa: Devido ao status de "Possível Fraude" e aos detalhes fornecidos no parecer, é necessário uma investigação mais aprofundada pelo setor especializado.
+
+Ações sugeridas:
+1. Iniciar protocolo de investigação de fraude.
+2. Suspender temporariamente a transação.
+3. Realizar verificação detalhada do histórico de compras do cliente.
+4. Contatar o titular do cartão para confirmação da transação.
+
+Classificação do tipo de fraude potencial: Fraude de produto de alto valor
+
+Observações adicionais:
+- O alto valor da transação para equipamento esportivo é um indicador de risco.
+- O horário incomum da compra aumenta a suspeita.
+- Recomenda-se atenção especial a padrões de compra atípicos neste segmento.

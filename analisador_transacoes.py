@@ -135,10 +135,57 @@ def gerar_parecer(transacao):
     print(f"Um erro inesperado ocorreu: {e}")
 
 
+def gerar_recomendacao(parecer):
+  prompt_do_sistema = f"""
+  Para a seguinte transação, forneça uma recomendação apropriada baseada no status e nos detalhes 
+  da Transação: {parecer}
+
+  As recomendações podem ser "Notificar Cliente", "Acionar setor Anti-fraude" ou "Realizar Verificação Manual".
+  Elas devem ser escritas no formato técnico.
+
+  Inclua também uma classificação do tipo de fraude, se aplicável. 
+  """
+
+  try:
+    print("5 - Iniciou a geração de recomendação")
+    mensagem = client.messages.create(
+      model=modelo,
+      max_tokens=4000,
+      temperature=0,
+      #system=prompt_do_sistema,
+      messages = [
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": prompt_do_sistema
+            }
+          ]
+        }
+      ]
+    )
+    resposta = mensagem.content[0].text
+    print("6 - Finalizou a geração de recomendação")
+    return resposta
+
+  except anthropic.APIConnectionError as e:
+    print("O servidor não pode ser acessado! Erro: ", e.__cause__)
+  except anthropic.RateLimitError as e:
+    print("Um status code 429 foi recebido! Limite de acesso foi atingido.")
+  except anthropic.APIStatusError as e:
+    print(f"Um erro {e.status_code} foi recebido. Mais informações: {e.response}")
+  except Exception as e:
+    print(f"Um erro inesperado ocorreu: {e}")
+
+
 transacoes = carrega('transacoes.csv')
 transacoes_analisadas = analisar_transacoes(transacoes)
 
 for transacao in transacoes_analisadas['transacoes']:
   if transacao['status'] == 'Possível Fraude':
     parecer = gerar_parecer(transacao)
-    print(parecer)
+    recomendacao = gerar_recomendacao(parecer)
+
+    caminho = f"./dados/recomendacoes/transacao-{transacao['id']}-{transacao['nome_produto']}-{transacao['status']}.txt"
+    salva(caminho, recomendacao)

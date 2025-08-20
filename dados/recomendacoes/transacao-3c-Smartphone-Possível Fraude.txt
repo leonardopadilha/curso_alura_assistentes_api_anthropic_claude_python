@@ -1,0 +1,13 @@
+Recomendação: Acionar setor Anti-fraude
+
+Justificativa: Dado o status de "Possível Fraude" e o parecer detalhado indicando um alto valor gasto em um único produto eletrônico em localização não habitual, é necessário uma investigação mais aprofundada antes de aprovar ou negar a transação.
+
+Ações sugeridas:
+1. Iniciar protocolo de verificação de identidade do titular
+2. Analisar o histórico de compras do cliente para identificar padrões discrepantes
+3. Verificar se houve tentativas similares de transação recentemente
+4. Contatar o estabelecimento para confirmar detalhes da venda
+
+Classificação do tipo de fraude potencial: Fraude de Cartão Não Presente (CNP) / Roubo de Identidade
+
+Observação: Manter a transação suspensa até conclusão da análise pelo setor anti-fraude.
